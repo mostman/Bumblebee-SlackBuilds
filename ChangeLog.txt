@@ -1,4 +1,10 @@
 +--------------------------+
+Tus Jun 27 17:55 CET 2021
+Changed to nvidia driver 418.113
+Updated primus_vk to 1.6.2
+Added some patches
+
++--------------------------+
 Mon Nov 01 15:53:32 CET 2021
 Upgraded to nvidia driver 470.82.00
 
