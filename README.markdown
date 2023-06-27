@@ -1,7 +1,10 @@
 # Bumblebee Slackbuilds
 
 This set of SlackBuilds should get Bumblebee up and running on a
-Slackware based NVIDIA Optimus setup.
+Slackware 15.0 based NVIDIA Optimus setup.
+
+Changed this to suit my Lenovo Thinkpad E531 that has a Intel 915 and Nvidia GT740M hybrid grapics card..
+This is why i changed from Nvidia 470.xx driver to Nivida 418.113
 
 ## Slackbuilds HowTo:
   If you have never used a SlackBuild before, please refer to the HowTo
