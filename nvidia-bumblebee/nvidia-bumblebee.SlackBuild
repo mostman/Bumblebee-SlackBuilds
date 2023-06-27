@@ -92,7 +92,7 @@ mkdir -p \
   $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/{tls,vdpau} \
   $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg/modules/{drivers,extensions} \
   $PKG/usr/man/man1/ \
-  $PKG/usr/share/{applications,pixmaps}
+  $PKG/usr/share/{nvidia,applications,pixmaps}
 
 # nvidia-driver
 cd $TMP/${PKGNAM[0]}
@@ -203,6 +203,10 @@ cd $TMP/${PKGNAM[0]}
     ln -sf libvdpau_nvidia.so.1        libvdpau_nvidia.so
   cd -
 
+  cd $PKG/usr/lib${LIBDIRSUFFIX}/
+    ln -sf $PRGNAM/vdpau/libvdpau_nvidia.so ./libvdpau_nvidia.so
+  cd -
+
   cd $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg/modules/extensions
     ln -sf libglxserver_nvidia.so.$VERSION libGLX.so
     ln -sf libglxserver_nvidia.so.$VERSION libglx.so.1
@@ -214,6 +218,10 @@ cd $TMP/${PKGNAM[0]}
   cp -a \
     LICENSE NVIDIA_Changelog README.txt html \
    $PKG/usr/doc/$PRGNAM-$VERSION
+
+  cp -a \
+   nvidia-application-profiles-418.113-key-documentation \
+   $PKG/usr/share/nvidia/nvidia-application-profiles-key-documentation
 
   if [ "$COMPAT32" = "yes" -a "$ARCH" = "x86_64" ]; then
     mkdir -p $PKG/usr/lib/$PRGNAM/{tls,vdpau}
@@ -291,10 +299,15 @@ cd $TMP/${PKGNAM[0]}
       ln -sf libvdpau_nvidia.so.$VERSION libvdpau_nvidia.so.1
       ln -sf libvdpau_nvidia.so.1        libvdpau_nvidia.so
     cd -
+
+    cd $PKG/usr/lib/
+      ln -sf $PRGNAM/vdpau/libvdpau_nvidia.so ./libvdpau_nvidia.so
+    cd -
   fi
 
 # nvidia-settings
 cd $TMP/${PKGNAM[1]}
+  patch -Np1 -i $CWD/gcc10_fix_ctkvdpau.patch
   cd src/libXNVCtrl
     make clean
     CFLAGS="$SLKCFLAGS" make
@@ -329,7 +342,7 @@ cd $TMP/${PKGNAM[3]}
 sed -i \
   -e "s,__NVIDIA_SETTINGS_DESKTOP_CATEGORIES__,Application;Settings;," \
   -e "s,__PIXMAP_PATH__/,," \
-  -e "s,__UTILS_PATH__/\(.*\),optirun \1 -c :8 ," \
+  -e "s,__UTILS_PATH__/\(.*\),optirun -b none \1 -c :8 ," \
  $PKG/usr/share/applications/nvidia-settings.desktop
 
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild

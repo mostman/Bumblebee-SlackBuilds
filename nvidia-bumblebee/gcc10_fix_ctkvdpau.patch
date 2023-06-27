@@ -1,0 +1,69 @@
+diff -ur nvidia-settings-418.113/src/gtk+-2.x/ctkvdpau.c b.nvidia-settings-418.113/src/gtk+-2.x/ctkvdpau.c
+--- a.nvidia-settings-418.113/src/gtk+-2.x/ctkvdpau.c	2023-06-24 12:10:14.696857089 +0200
++++ b.nvidia-settings-418.113/src/gtk+-2.x/ctkvdpau.c	2023-06-24 12:14:29.240414251 +0200
+@@ -103,6 +103,29 @@
+ const gchar* __video_mixer_attribute_help =
+ "This shows the video mixer attributes and any applicable ranges.";
+ 
++static struct VDPAUDeviceImpl {
++
++    VdpGetErrorString *GetErrorString;
++    VdpGetProcAddress *GetProcAddress;
++    VdpGetApiVersion *GetApiVersion;
++    VdpGetInformationString *GetInformationString;
++    VdpVideoSurfaceQueryCapabilities *VideoSurfaceQueryCapabilities;
++    VdpVideoSurfaceQueryGetPutBitsYCbCrCapabilities
++        *VideoSurfaceQueryGetPutBitsYCbCrCapabilities;
++    VdpOutputSurfaceQueryCapabilities *OutputSurfaceQueryCapabilities;
++    VdpOutputSurfaceQueryGetPutBitsNativeCapabilities
++        *OutputSurfaceQueryGetPutBitsNativeCapabilities;
++    VdpOutputSurfaceQueryPutBitsYCbCrCapabilities
++        *OutputSurfaceQueryPutBitsYCbCrCapabilities;
++    VdpBitmapSurfaceQueryCapabilities *BitmapSurfaceQueryCapabilities;
++    VdpDecoderQueryCapabilities *DecoderQueryCapabilities;
++    VdpVideoMixerQueryFeatureSupport *VideoMixerQueryFeatureSupport;
++    VdpVideoMixerQueryParameterSupport *VideoMixerQueryParameterSupport;
++    VdpVideoMixerQueryAttributeSupport *VideoMixerQueryAttributeSupport;
++    VdpVideoMixerQueryParameterValueRange *VideoMixerQueryParameterValueRange;
++    VdpVideoMixerQueryAttributeValueRange *VideoMixerQueryAttributeValueRange;
++} VDPAUDeviceFunctions;
++
+ static int queryOutputSurface(CtkVDPAU *ctk_vdpau, VdpDevice device,
+                               VdpGetProcAddress *getProcAddress);
+ 
+Only in b.nvidia-settings-418.113/src/gtk+-2.x: ctkvdpau.c.orig
+diff -ur nvidia-settings-418.113/src/gtk+-2.x/ctkvdpau.h b.nvidia-settings-418.113/src/gtk+-2.x/ctkvdpau.h
+--- a.nvidia-settings-418.113/src/gtk+-2.x/ctkvdpau.h	2023-06-24 12:10:39.501203762 +0200
++++ b.nvidia-settings-418.113/src/gtk+-2.x/ctkvdpau.h	2023-06-24 12:14:29.242414278 +0200
+@@ -45,30 +45,6 @@
+ #define CTK_VDPAU_GET_CLASS(obj) \
+     (G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_TYPE_VDPAU, CtkVDPAUClass))
+ 
+-
+-struct VDPAUDeviceImpl {
+-
+-    VdpGetErrorString *GetErrorString;
+-    VdpGetProcAddress *GetProcAddress;
+-    VdpGetApiVersion *GetApiVersion;
+-    VdpGetInformationString *GetInformationString;
+-    VdpVideoSurfaceQueryCapabilities *VideoSurfaceQueryCapabilities;
+-    VdpVideoSurfaceQueryGetPutBitsYCbCrCapabilities
+-        *VideoSurfaceQueryGetPutBitsYCbCrCapabilities;
+-    VdpOutputSurfaceQueryCapabilities *OutputSurfaceQueryCapabilities;
+-    VdpOutputSurfaceQueryGetPutBitsNativeCapabilities
+-        *OutputSurfaceQueryGetPutBitsNativeCapabilities;
+-    VdpOutputSurfaceQueryPutBitsYCbCrCapabilities
+-        *OutputSurfaceQueryPutBitsYCbCrCapabilities;
+-    VdpBitmapSurfaceQueryCapabilities *BitmapSurfaceQueryCapabilities;
+-    VdpDecoderQueryCapabilities *DecoderQueryCapabilities;
+-    VdpVideoMixerQueryFeatureSupport *VideoMixerQueryFeatureSupport;
+-    VdpVideoMixerQueryParameterSupport *VideoMixerQueryParameterSupport;
+-    VdpVideoMixerQueryAttributeSupport *VideoMixerQueryAttributeSupport;
+-    VdpVideoMixerQueryParameterValueRange *VideoMixerQueryParameterValueRange;
+-    VdpVideoMixerQueryAttributeValueRange *VideoMixerQueryAttributeValueRange;
+-} VDPAUDeviceFunctions;
+-
+ /* Generic description structure */
+ typedef struct
+ {
+Only in b.nvidia-settings-418.113/src/gtk+-2.x: ctkvdpau.h.orig
