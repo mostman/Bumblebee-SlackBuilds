@@ -86,6 +86,16 @@ patch -p1 < $CWD/patches/updated-lib32-to-lib64-for-primus-path.patch
 # Patch to compile in GCC 10
 patch -p1 < $CWD/patches/bumblebee-gcc10.patch
 
+# Patches from Arch Linux
+patch -p1 < $CWD/patches/0001-bb_nvidia_modeset-detection_bug699_01.patch
+patch -p1 < $CWD/patches/0002-bb_nvidia_modeset-detection_bug699_02.patch
+patch -p1 < $CWD/patches/0003-bb_nvidia_umv_detection_bug699.patch
+patch -p1 < $CWD/patches/0004-bb_nvidia_drm_detection_bug699_01.patch
+patch -p1 < $CWD/patches/0005-bb_nvidia_drm_detection_bug699_02.patch
+patch -p1 < $CWD/patches/0006-bb_hexadicimal_bug573.patch
+patch -p1 < $CWD/patches/0007-bb_mutebblogger.patch
+patch -p1 < $CWD/patches/0008-libglvnd.patch
+
 autoreconf -fi
 
 CFLAGS="$SLKCFLAGS" \
