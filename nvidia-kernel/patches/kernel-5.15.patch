@@ -1,0 +1,24 @@
+diff -Nru NVIDIA-Linux-x86_64-418.113/kernel/nvidia/nvlink_linux.c NVIDIA-Linux-x86_64-418.113-new/kernel/nvidia/nvlink_linux.c
+--- NVIDIA-Linux-x86_64-418.113/kernel/nvidia/nvlink_linux.c	2022-10-14 04:45:18.392868868 +0200
++++ NVIDIA-Linux-x86_64-418.113-new/kernel/nvidia/nvlink_linux.c	2022-10-14 04:41:57.971877251 +0200
+@@ -582,7 +582,7 @@
+         // the requested timeout has expired, loop until less
+         // than a jiffie of the desired delay remains.
+         //
+-        current->state = TASK_INTERRUPTIBLE;
++        current->__state = TASK_INTERRUPTIBLE;
+         do
+         {
+             schedule_timeout(jiffies);
+diff -Nru NVIDIA-Linux-x86_64-418.113/kernel/nvidia/os-interface.c NVIDIA-Linux-x86_64-418.113-new/kernel/nvidia/os-interface.c
+--- NVIDIA-Linux-x86_64-418.113/kernel/nvidia/os-interface.c	2022-10-14 04:45:18.392868868 +0200
++++ NVIDIA-Linux-x86_64-418.113-new/kernel/nvidia/os-interface.c	2022-10-14 04:37:59.381887229 +0200
+@@ -596,7 +596,7 @@
+         // the requested timeout has expired, loop until less
+         // than a jiffie of the desired delay remains.
+         //
+-        current->state = TASK_INTERRUPTIBLE;
++        current->__state = TASK_INTERRUPTIBLE;
+         do
+         {
+             schedule_timeout(jiffies);

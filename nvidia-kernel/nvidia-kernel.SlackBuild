@@ -68,6 +68,17 @@ cd $TMP || exit 1
 rm -rf $SRCNAM
 sh $CWD/$SRCNAM.run --extract-only || exit 1
 cd $SRCNAM || exit 1
+# Patch kernel files
+patch -Np1 -i $CWD/patches/kernel-5.5.patch --verbose || exit 1
+patch -Np1 -i $CWD/patches/kernel-5.6.patch --verbose || exit 1
+patch -Np1 -i $CWD/patches/kernel-5.7.patch --verbose || exit 1
+patch -Np1 -i $CWD/patches/kernel-5.8.patch --verbose || exit 1
+patch -Np1 -i $CWD/patches/kernel-5.9.patch --verbose || exit 1
+patch -Np1 -i $CWD/patches/kernel-5.10.patch --verbose || exit 1
+patch -Np1 -i $CWD/patches/kernel-5.11.patch --verbose || exit 1
+patch -Np1 -i $CWD/patches/kernel-5.15.patch --verbose || exit 1
+patch -Np1 -i $CWD/patches/license.patch --verbose || exit 1
+
 chown -R root:root .
 chmod -R u+w,go+r-w,a-s .
 
