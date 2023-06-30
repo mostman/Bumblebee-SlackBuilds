@@ -164,8 +164,8 @@ Stable:
   <del>- Note:
   This will blacklist / remove the conflicting nouveau driver from
   slackware, it will however come back unless you add `xf86-video-nouveau`
-  to `/etc/slackpkg/blacklist`</del>
-  You can skipp  this step as this is added to bumblebee.conf
+  to `/etc/slackpkg/blacklist`</del>  
+  Note: You can skipp  this step as this is added to bumblebee.conf
 
 ### 8. Build and install `nvidia-kernel` (Optional, not needed if using nouveau):
 ```
