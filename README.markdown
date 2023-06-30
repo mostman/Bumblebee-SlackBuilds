@@ -89,11 +89,25 @@ Stable:
 ```
   Note: you will need to re-login as the user for this to take effect.
 
-### 3. Build and install `libbsd`:
+### 3. Build and install `libmd & libbsd`:
 ```
-    cd libbsd
+    wget https://slackbuilds.org/slackbuilds/15.0/libraries/libmd.tar.gz
+    tar xf libmd.tar.gz
+    rm libmd.tar.gz
+    cd libmd
+    wget https://archive.hadrons.org/software/libmd/libmd-1.1.0.tar.xz
+    nano libmd.SlackBuild
+    ---------------------
+    Change row 28 from "VERSION=${VERSION:-1.0.4}" to "VERSION=${VERSION:-1.1.0}"
+    Save and exit nano.
+    ---------------------
+
+    ./libmd.SlackBuild
+    upgradepkg --install-new /tmp/libmd-*_SBo.tgz
+
+    cd ../libbsd
     ./libbsd.Slackbuild
-    upgradepkg --install-new /tmp/libbsd-<ver-arch-build>_bbsb.txz
+    upgradepkg --install-new /tmp/libbsd-*_bbsb.txz
     cd ..
 ```
 
@@ -101,7 +115,7 @@ Stable:
 ```
     cd bumblebee
     ./bumblebee.Slackbuild
-    upgradepkg --install-new /tmp/bumblebee-<ver-arch-build>_bbsb.txz
+    upgradepkg --install-new /tmp/bumblebee-*_bbsb.txz
     cd ..
 ```
 
@@ -109,7 +123,7 @@ Stable:
 ```
     cd bbswitch
     ./bbswitch.Slackbuild
-    upgradepkg --install-new /tmp/bbswitch-<ver-arch-build>_bbsb.txz
+    upgradepkg --install-new /tmp/bbswitch-*_bbsb.txz
     cd ..
 ```
   - Note:
@@ -134,7 +148,7 @@ Stable:
 ```
   Then install:
 ```
-    upgradepkg --install-new /tmp/primus-<ver-arch-build>_bbsb.txz
+    upgradepkg --install-new /tmp/primus-*_bbsb.txz
     cd ..
 ```
   - Note: due to the sync between framerate and refresh rate, you may not see any difference between primusrun and the intel card in glxgears, although you will see drastic differences playing high end games.  In the past the vblank_mode set to 0 improved framerates and helped with screen tearing, now tho this should only be used for benchmarks or tests:  
@@ -144,20 +158,21 @@ Stable:
 
 ### 7. Blacklist nouveau (or skip steps 8, 9, 10):
 ```
-    cd nouveau-blacklist
+    <del>cd nouveau-blacklist
     upgradepkg xf86-video-nouveau-blacklist-noarch-1.txz
     cd ..
 ```
   - Note:
   This will blacklist / remove the conflicting nouveau driver from
   slackware, it will however come back unless you add `xf86-video-nouveau`
-  to `/etc/slackpkg/blacklist`
+  to `/etc/slackpkg/blacklist`</del>
+  You can skipp  this step as this is added to bumblebee.conf
 
 ### 8. Build and install `nvidia-kernel` (Optional, not needed if using nouveau):
 ```
     cd nvidia-kernel
     ./nvidia-kernel.Slackbuild
-    upgradepkg --install-new /tmp/nvidia-kernel-<ver-arch-build>_bbsb.txz
+    upgradepkg --install-new /tmp/nvidia-kernel-*_bbsb.txz
     cd ..
 ```
   - Note: This will need to be rebuilt when you upgrade the kernel.
@@ -177,7 +192,7 @@ Stable:
 ```
   Then install:
 ```
-    upgradepkg --install-new /tmp/nvidia-bumblebee-<ver-arch-build>_bbsb.txz
+    upgradepkg --install-new /tmp/nvidia-bumblebee-*_bbsb.txz
     cd ..
 ```
 
