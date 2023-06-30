@@ -1,5 +1,9 @@
 +--------------------------+
-Tus Jun 27 17:55 CET 2021
+Fri Jun 30 03:44 CET 2023
+Added bumblebee.conf
+
++--------------------------+
+Tus Jun 27 17:55 CET 2023
 Changed to nvidia driver 418.113
 Updated primus_vk to 1.6.2
 Added some patches
