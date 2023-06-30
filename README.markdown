@@ -97,11 +97,10 @@ Stable:
     cd libmd
     wget https://archive.hadrons.org/software/libmd/libmd-1.1.0.tar.xz
     nano libmd.SlackBuild
-    ---------------------
+```
     Change row 28 from "VERSION=${VERSION:-1.0.4}" to "VERSION=${VERSION:-1.1.0}"
     Save and exit nano.
-    ---------------------
-
+```
     ./libmd.SlackBuild
     upgradepkg --install-new /tmp/libmd-*_SBo.tgz
 
@@ -158,11 +157,11 @@ Stable:
 
 ### 7. Blacklist nouveau (or skip steps 8, 9, 10):
 ```
-    <del>cd nouveau-blacklist
+    cd nouveau-blacklist
     upgradepkg xf86-video-nouveau-blacklist-noarch-1.txz
     cd ..
 ```
-  - Note:
+  <del>- Note:
   This will blacklist / remove the conflicting nouveau driver from
   slackware, it will however come back unless you add `xf86-video-nouveau`
   to `/etc/slackpkg/blacklist`</del>
