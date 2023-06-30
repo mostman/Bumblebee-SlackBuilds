@@ -11,3 +11,4 @@ prevent the nv driver and/or the binary nVidia driver from working.
 If you have obtained the nouveau driver yourself and want to try it,
 remove this package to allow the kernel module to load.
 
+Is not needed anymore as i added this to the bumblebee.conf file...
