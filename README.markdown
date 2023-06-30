@@ -98,7 +98,7 @@ Stable:
     wget https://archive.hadrons.org/software/libmd/libmd-1.1.0.tar.xz
     nano libmd.SlackBuild
 ```
-    Change row 28 from "VERSION=${VERSION:-1.0.4}" to "VERSION=${VERSION:-1.1.0}"
+  Change row 28 from "VERSION=${VERSION:-1.0.4}" to "VERSION=${VERSION:-1.1.0}"
     Save and exit nano.
 ```
     ./libmd.SlackBuild
