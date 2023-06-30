@@ -129,7 +129,7 @@ cp -a \
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/etc/modprobe.d/
-install -Dm644 "$CWD/bumblebee.conf $PKG/etc/modprobe.d/bumblebee.conf
+install -D -m0644 -o root -g root $CWD/bumblebee.conf $PKG/etc/modprobe.d/bumblebee.conf
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
