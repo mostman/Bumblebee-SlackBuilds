@@ -1,4 +1,8 @@
 +--------------------------+
+Tus Jul 24 18:35 CET 2025
+Bump libbsd version to 0.12.2
+
++--------------------------+
 Fri Jun 30 03:44 CET 2023
 Added bumblebee.conf
 
