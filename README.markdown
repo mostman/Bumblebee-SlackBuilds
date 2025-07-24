@@ -100,13 +100,9 @@ Stable:
     upgradepkg --install-new /tmp/libmd-*_SBo.tgz
 
     cd ../
-    wget https://slackbuilds.org/slackbuilds/15.0/libraries/libbsd.tar.gz
-    tar xf libbsd.tar.gz
-    rm libbsd.tar.gz
     cd ../libbsd
-    wget https://libbsd.freedesktop.org/releases/libbsd-0.12.2.tar.xz
     ./libbsd.Slackbuild
-    upgradepkg --install-new /tmp/libbsd-*_SBo.txz
+    upgradepkg --install-new /tmp/libbsd-*_bbsb.txz
     cd ..
 ```
 
