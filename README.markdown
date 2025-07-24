@@ -96,17 +96,17 @@ Stable:
     rm libmd.tar.gz
     cd libmd
     wget https://archive.hadrons.org/software/libmd/libmd-1.1.0.tar.xz
-    nano libmd.SlackBuild
-```
-  Change row 28 from "VERSION=${VERSION:-1.0.4}" to "VERSION=${VERSION:-1.1.0}"
-    Save and exit nano.
-```
     ./libmd.SlackBuild
     upgradepkg --install-new /tmp/libmd-*_SBo.tgz
 
+    cd ../
+    wget https://slackbuilds.org/slackbuilds/15.0/libraries/libbsd.tar.gz
+    tar xf libbsd.tar.gz
+    rm libbsd.tar.gz
     cd ../libbsd
+    wget https://libbsd.freedesktop.org/releases/libbsd-0.12.2.tar.xz
     ./libbsd.Slackbuild
-    upgradepkg --install-new /tmp/libbsd-*_bbsb.txz
+    upgradepkg --install-new /tmp/libbsd-*_SBo.txz
     cd ..
 ```
 
