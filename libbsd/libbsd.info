@@ -1,5 +1,5 @@
 PRGNAM="libbsd"
-VERSION="0.11.7"
+VERSION="0.12.2"
 HOMEPAGE="https://libbsd.freedesktop.org/wiki/"
 DOWNLOAD="https://libbsd.freedesktop.org/releases/libbsd-$VERSION.tar.xz"
 MD5SUM="2c5e63b5bb7771bbe4f572c7788e0bb8"
