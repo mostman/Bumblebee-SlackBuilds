@@ -99,7 +99,6 @@ Stable:
     ./libmd.SlackBuild
     upgradepkg --install-new /tmp/libmd-*_SBo.tgz
 
-    cd ../
     cd ../libbsd
     ./libbsd.Slackbuild
     upgradepkg --install-new /tmp/libbsd-*_bbsb.txz
