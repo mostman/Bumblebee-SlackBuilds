@@ -59,7 +59,7 @@ install_latest_pkg_compat() {
 
 if [ "$UPDATE" = "yes" -a "$REINSTALL" = "no" ]; then
   cd
-  git clone https://github.com/WhiteWolf1776/Bumblebee-SlackBuilds.git
+  git clone https://github.com/mostman/Bumblebee-SlackBuilds.git
   cd Bumblebee-SlackBuilds/
 fi
 
