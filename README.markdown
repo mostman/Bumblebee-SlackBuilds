@@ -91,11 +91,7 @@ Stable:
 
 ### 3. Build and install `libmd & libbsd`:
 ```
-    wget https://slackbuilds.org/slackbuilds/15.0/libraries/libmd.tar.gz
-    tar xf libmd.tar.gz
-    rm libmd.tar.gz
     cd libmd
-    wget https://archive.hadrons.org/software/libmd/libmd-1.1.0.tar.xz
     ./libmd.SlackBuild
     upgradepkg --install-new /tmp/libmd-*_SBo.tgz
 
