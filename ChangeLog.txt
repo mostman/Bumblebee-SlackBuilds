@@ -1,5 +1,9 @@
 +--------------------------+
-Tus Jul 24 18:35 CET 2025
+Fri Jul 25 19:09 CET 2025
+Added libmd to the build
+
++--------------------------+
+Thu Jul 24 18:35 CET 2025
 Bump libbsd version to 0.12.2
 Bump primus_vk version to 1.6.4
 
