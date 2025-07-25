@@ -93,7 +93,7 @@ Stable:
 ```
     cd libmd
     ./libmd.SlackBuild
-    upgradepkg --install-new /tmp/libmd-*_SBo.tgz
+    upgradepkg --install-new /tmp/libmd-*_bbsb.tgz
 
     cd ../libbsd
     ./libbsd.Slackbuild
