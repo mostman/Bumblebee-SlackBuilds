@@ -113,6 +113,12 @@ CONF_MODPATH_NVIDIA="$MODPATH" \
 make
 make install DESTDIR=$PKG
 
+# Configure Bumblebee to use the proprietary NVIDIA driver
+sed -i \
+  -e 's/^Driver=$/Driver=nvidia/' \
+  -e 's|^PrimusLibraryPath=.*|PrimusLibraryPath=/usr/lib64/primus:/usr/lib/primus|' \
+  $PKG/etc/bumblebee/bumblebee.conf
+
 mkdir -p $PKG/etc/rc.d/
 sed \
   "s,@SBINDIR@,/usr/sbin," \
